@@ -81,11 +81,11 @@
 
   <div class="countdown-container">
   <h4><i class="material-icons">hourglass_bottom</i> Countdown to Last Date for Submission</h4>
-  <div class="countdown-timer" id="countdown">
-    <div class="time-box"><span id="days">00</span><small>Days</small></div>
-    <div class="time-box"><span id="hours">00</span><small>Hours</small></div>
-    <div class="time-box"><span id="minutes">00</span><small>Minutes</small></div>
-    <div class="time-box"><span id="seconds">00</span><small>Seconds</small></div>
+  <div class="countdown-timer" id="countdown1">
+    <div class="time-box"><span id="days1">00</span><small>Days</small></div>
+    <div class="time-box"><span id="hours1">00</span><small>Hours</small></div>
+    <div class="time-box"><span id="minutes1">00</span><small>Minutes</small></div>
+    <div class="time-box"><span id="seconds1">00</span><small>Seconds</small></div>
   </div>
 </div>
 
@@ -321,25 +321,15 @@
     <!-- Countdown Timer -->
 <div class="countdown-container">
   <h4><i class="material-icons">hourglass_bottom</i> Countdown to Last Date for Submission</h4>
-  <div class="countdown-timer" id="countdown">
-    <div class="time-box"><span id="days">00</span><small>Days</small></div>
-    <div class="time-box"><span id="hours">00</span><small>Hours</small></div>
-    <div class="time-box"><span id="minutes">00</span><small>Minutes</small></div>
-    <div class="time-box"><span id="seconds">00</span><small>Seconds</small></div>
+  <div class="countdown-timer" id="countdown2">
+    <div class="time-box"><span id="days2">00</span><small>Days</small></div>
+    <div class="time-box"><span id="hours2">00</span><small>Hours</small></div>
+    <div class="time-box"><span id="minutes2">00</span><small>Minutes</small></div>
+    <div class="time-box"><span id="seconds2">00</span><small>Seconds</small></div>
   </div>
 </div>
 
 </section>
-
-
-
-
-
-
-
-
-
-
 
  <section class="organizers-section" id="organizers-section">
   <div class="organizers-heading-bar">
@@ -402,27 +392,50 @@
 </footer>
 
 <script>
-  // Set the date of the workshop
-  const workshopDate = new Date("August 30, 2025 12:59:59").getTime();
+  // Timer 1: Workshop submission deadline
+  const deadline1 = new Date("August 30, 2025 23:59:59").getTime();
 
-  const countdown = () => {
+  function updateCountdown1() {
     const now = new Date().getTime();
-    const distance = workshopDate - now;
+    const distance = deadline1 - now;
 
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    document.getElementById("days").innerText = days < 10 ? '0' + days : days;
-    document.getElementById("hours").innerText = hours < 10 ? '0' + hours : hours;
-    document.getElementById("minutes").innerText = minutes < 10 ? '0' + minutes : minutes;
-    document.getElementById("seconds").innerText = seconds < 10 ? '0' + seconds : seconds;
-  };
+    document.getElementById("days1").innerText = days.toString().padStart(2, "0");
+    document.getElementById("hours1").innerText = hours.toString().padStart(2, "0");
+    document.getElementById("minutes1").innerText = minutes.toString().padStart(2, "0");
+    document.getElementById("seconds1").innerText = seconds.toString().padStart(2, "0");
+  }
 
-  countdown(); // Initial call
-  setInterval(countdown, 1000); // Update every second
+  // Timer 2: Important dates section (same deadline or different one if you want)
+  const deadline2 = new Date("August 30, 2025 23:59:59").getTime();
+
+  function updateCountdown2() {
+    const now = new Date().getTime();
+    const distance = deadline2 - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days2").innerText = days.toString().padStart(2, "0");
+    document.getElementById("hours2").innerText = hours.toString().padStart(2, "0");
+    document.getElementById("minutes2").innerText = minutes.toString().padStart(2, "0");
+    document.getElementById("seconds2").innerText = seconds.toString().padStart(2, "0");
+  }
+
+  updateCountdown1();
+  updateCountdown2();
+  setInterval(() => {
+    updateCountdown1();
+    updateCountdown2();
+  }, 1000);
 </script>
+
 
 
   <script src="script.js"></script>
