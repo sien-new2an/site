@@ -1,6 +1,6 @@
 window.addEventListener("DOMContentLoaded", () => {
-  const deadline1 = new Date("August 30, 2025 23:59:59").getTime();
-  const deadline2 = new Date("August 30, 2025 23:59:59").getTime();
+  const deadline1 = new Date("September 10, 2025 23:59:59").getTime();
+  const deadline2 = new Date("September 10, 2025 23:59:59").getTime();
 
   function updateCountdown1() {
     const now = new Date().getTime();
